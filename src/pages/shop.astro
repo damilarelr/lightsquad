@@ -1,18 +1,18 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 const products = [
-  {id:1,cat:"Go-Karts",name:"LS Viper 125",price:"₦850,000",tag:"Best Seller",desc:"Entry-level racing kart. Perfect for beginners and track days.",emoji:"🏎️"},
-  {id:2,cat:"Go-Karts",name:"LS Raptor Pro",price:"₦1,450,000",tag:"Pro Series",desc:"Competition-spec kart with 250cc engine and full race setup.",emoji:"🏎️"},
-  {id:3,cat:"Go-Karts",name:"LS Junior 50",price:"₦620,000",tag:"Kids",desc:"Safe, fun 50cc kart designed specifically for young riders aged 7-14.",emoji:"🏎️"},
-  {id:4,cat:"ATVs",name:"LS Predator 250",price:"₦1,200,000",tag:"Popular",desc:"Mid-size ATV for off-road trails and recreational riding.",emoji:"🏍️"},
-  {id:5,cat:"ATVs",name:"LS Titan 500",price:"₦2,100,000",tag:"Power",desc:"Full-size sport ATV with 500cc engine and premium suspension.",emoji:"🏍️"},
-  {id:6,cat:"UTVs",name:"LS Ranger 2-Seat",price:"₦3,500,000",tag:"New",desc:"Sport side-by-side with roll cage, 2 seats and 800cc engine.",emoji:"🚙"},
-  {id:7,cat:"UTVs",name:"LS Ranger 4-Seat",price:"₦5,200,000",tag:"Family",desc:"Family UTV with 4 seats, premium safety features and 1000cc power.",emoji:"🚙"},
+  {id:1,cat:"Go-Karts",name:"LS Viper 125",price:"₦850,000",tag:"Best Seller",desc:"Entry-level racing kart. Perfect for beginners and track days.",img:"/images/gokart.png"},
+  {id:2,cat:"Go-Karts",name:"LS Raptor Pro",price:"₦1,450,000",tag:"Pro Series",desc:"Competition-spec kart with 250cc engine and full race setup.",img:"/images/gokart.png"},
+  {id:3,cat:"Go-Karts",name:"LS Junior 50",price:"₦620,000",tag:"Kids",desc:"Safe, fun 50cc kart designed specifically for young riders aged 7-14.",img:"/images/gokart.png"},
+  {id:4,cat:"ATVs",name:"LS Predator 250",price:"₦1,200,000",tag:"Popular",desc:"Mid-size ATV for off-road trails and recreational riding.",img:"/images/atv.png"},
+  {id:5,cat:"ATVs",name:"LS Titan 500",price:"₦2,100,000",tag:"Power",desc:"Full-size sport ATV with 500cc engine and premium suspension.",img:"/images/atv.png"},
+  {id:6,cat:"UTVs",name:"LS Ranger 2-Seat",price:"₦3,500,000",tag:"New",desc:"Sport side-by-side with roll cage, 2 seats and 800cc engine.",img:"/images/utv.png"},
+  {id:7,cat:"UTVs",name:"LS Ranger 4-Seat",price:"₦5,200,000",tag:"Family",desc:"Family UTV with 4 seats, premium safety features and 1000cc power.",img:"/images/utv.png"},
   {id:8,cat:"Accessories",name:"Racing Helmet",price:"₦85,000",tag:"Safety",desc:"FIA-rated full-face helmet in Lightsquad livery.",emoji:"🪖"},
   {id:9,cat:"Accessories",name:"Racing Suit",price:"₦120,000",tag:"Safety",desc:"Fire-resistant racing suit with LS branding.",emoji:"👔"},
   {id:10,cat:"Accessories",name:"Kart Cover",price:"₦25,000",tag:"Gear",desc:"Weather-proof custom kart storage cover.",emoji:"📦"},
   {id:11,cat:"Accessories",name:"Spare Parts Kit",price:"₦45,000",tag:"Parts",desc:"Essential spare parts kit for your Lightsquad kart.",emoji:"🔧"},
-  {id:12,cat:"Go-Karts",name:"LS Storm 200",price:"₦1,100,000",tag:"Performance",desc:"Mid-range performance kart with 200cc engine and adjustable chassis.",emoji:"🏎️"},
+  {id:12,cat:"Go-Karts",name:"LS Storm 200",price:"₦1,100,000",tag:"Performance",desc:"Mid-range performance kart with 200cc engine and adjustable chassis.",img:"/images/gokart.png"},
 ];
 const cats = ["All","Go-Karts","ATVs","UTVs","Accessories"];
 ---
@@ -35,8 +35,8 @@ const cats = ["All","Go-Karts","ATVs","UTVs","Accessories"];
     <div class="shop-grid" id="shop-grid">
       {products.map(p=>(
         <div class="product-card reveal" data-cat={p.cat}>
-          <div class="product-card__image">
-            <span style="font-size:4rem">{p.emoji}</span>
+          <div class="product-card__image" style="overflow:hidden">
+            {p.img ? <img src={p.img} alt={p.name} class="card__img" /> : <span style="font-size:4rem">{p.emoji}</span>}
             <span class="badge" style="position:absolute;top:1rem;left:1rem">{p.tag}</span>
           </div>
           <div class="product-card__body">

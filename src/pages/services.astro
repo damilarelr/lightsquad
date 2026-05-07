@@ -1,12 +1,12 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 const services = [
-  {num:"01",icon:"🏎️",title:"Go-Kart Manufacturing",desc:"Custom-built go-karts engineered for performance, durability, and speed. From beginner recreational karts to professional racing machines.",features:["CIK-FIA compliant frames","125cc to 250cc engines","Custom liveries & setups","Full race prep available"]},
-  {num:"02",icon:"🏍️",title:"ATV Sales & Customisation",desc:"All-terrain vehicles built to conquer any landscape. Rugged, powerful, and adventure-ready for off-road enthusiasts.",features:["50cc to 1000cc options","Off-road & sport variants","Custom modifications","Spare parts supply"]},
-  {num:"03",icon:"🚙",title:"UTV Sales",desc:"Side-by-side UTVs perfect for recreation, agriculture, and adventure. Built tough for Nigerian terrain.",features:["2 to 6 seater options","Utility & sport models","Roll cage protection","Financing available"]},
-  {num:"04",icon:"🏁",title:"Racing Car Fabrication",desc:"Bespoke lightweight racing cars designed and fabricated in-house. From track day specials to full competition builds.",features:["Tube-frame chassis builds","Composite bodywork","FIA safety compliance","Trackday to race spec"]},
-  {num:"05",icon:"🎪",title:"Event Management",desc:"Full-service motorsport event management — from amateur track days to professional championship races.",features:["Venue sourcing & setup","Race day officials","Timing & scoring","Media & broadcasting"]},
-  {num:"06",icon:"🎯",title:"Corporate Racing Events",desc:"Unique corporate team-building experiences with karting, ATV adventures, and branded racing events.",features:["Group packages","Branded karts & kit","Catering options","Trophies & awards"]}
+  {num:"01",icon:"🏎️",img:"/images/gokart.png",title:"Go-Kart Manufacturing",desc:"Custom-built go-karts engineered for performance, durability, and speed. From beginner recreational karts to professional racing machines.",features:["CIK-FIA compliant frames","125cc to 250cc engines","Custom liveries & setups","Full race prep available"]},
+  {num:"02",icon:"🏍️",img:"/images/atv.png",title:"ATV Sales & Customisation",desc:"All-terrain vehicles built to conquer any landscape. Rugged, powerful, and adventure-ready for off-road enthusiasts.",features:["50cc to 1000cc options","Off-road & sport variants","Custom modifications","Spare parts supply"]},
+  {num:"03",icon:"🚙",img:"/images/utv.png",title:"UTV Sales",desc:"Side-by-side UTVs perfect for recreation, agriculture, and adventure. Built tough for Nigerian terrain.",features:["2 to 6 seater options","Utility & sport models","Roll cage protection","Financing available"]},
+  {num:"04",icon:"🏁",img:"/images/racecar.png",title:"Racing Car Fabrication",desc:"Bespoke lightweight racing cars designed and fabricated in-house. From track day specials to full competition builds.",features:["Tube-frame chassis builds","Composite bodywork","FIA safety compliance","Trackday to race spec"]},
+  {num:"05",icon:"🎪",img:null,title:"Event Management",desc:"Full-service motorsport event management — from amateur track days to professional championship races.",features:["Venue sourcing & setup","Race day officials","Timing & scoring","Media & broadcasting"]},
+  {num:"06",icon:"🎯",img:null,title:"Corporate Racing Events",desc:"Unique corporate team-building experiences with karting, ATV adventures, and branded racing events.",features:["Group packages","Branded karts & kit","Catering options","Trophies & awards"]}
 ];
 ---
 <Layout title="Services" page="services">
@@ -39,8 +39,8 @@ const services = [
           <a href="/contact" class="btn btn-outline">Enquire</a>
         </div>
       </div>
-      <div class="reveal-right" style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center">
-        <span style="font-size:6rem">{s.icon}</span>
+      <div class="reveal-right" style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);aspect-ratio:4/3;overflow:hidden;display:flex;align-items:center;justify-content:center">
+        {s.img ? <img src={s.img} alt={s.title} class="card__img" /> : <span style="font-size:6rem">{s.icon}</span>}
       </div>
     </div>
   </div>
