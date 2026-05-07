@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
 
 <section class="section" style="background:var(--dark)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem" class="contact-grid">
+    <div class="grid-2 contact-grid">
       <div>
         <div class="section-badge reveal"><span class="section-badge__num">01</span><span class="section-badge__line"></span><span class="section-badge__label">Enquiries</span></div>
         <h2 class="t-headline reveal" style="margin-bottom:2rem">Let&apos;s <span class="text-gradient">Talk.</span></h2>
@@ -54,9 +54,9 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       
-      <div class="card reveal-right" style="padding:2.5rem">
+      <div class="card reveal-right" style="padding:2rem">
         <form id="contact-form">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+          <div class="grid-2" style="gap:1.5rem">
             <div class="form-group">
               <label class="form-label">Name</label>
               <input type="text" class="form-control" placeholder="John Doe" required />

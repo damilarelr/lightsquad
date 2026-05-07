@@ -56,6 +56,9 @@ const { title, description = 'Lightsquad Motorsports — Precision. Speed. Adren
 
   <!-- MOBILE DRAWER -->
   <div class="nav__drawer" id="nav-drawer">
+    <div class="nav__drawer-header mobile-only">
+      <img src="/logo.png" alt="Lightsquad" style="height: 50px;" />
+    </div>
     <ul class="nav__drawer-links">
       <li><a href="/" class="nav__drawer-link">Home</a></li>
       <li><a href="/about" class="nav__drawer-link">About</a></li>
@@ -285,6 +288,7 @@ const { title, description = 'Lightsquad Motorsports — Precision. Speed. Adren
 .nav__drawer-socials { display: flex; gap: 1.5rem; }
 .nav__drawer-social { color: var(--grey-light); transition: color 0.2s; }
 .nav__drawer-social:hover { color: var(--orange); }
+.nav__drawer-header { margin-bottom: 3rem; text-align: center; }
 @media (max-width: 900px) {
   .nav__links { display: none; }
   .nav__cta .btn { display: none; }

@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -17,8 +17,8 @@ import Layout from '../layouts/Layout.astro';
       </div>
       
       <h1 class="t-hero hero__title reveal">
-        <span class="line-1">Precision.</span><br/>
-        <span class="line-2">Speed.</span><br/>
+        <span class="line-1">Precision.</span><br class="desktop-only"/>
+        <span class="line-2">Speed.</span><br class="desktop-only"/>
         <span class="line-3">Adrenaline.</span>
       </h1>
       
@@ -119,7 +119,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- ABOUT SECTION -->
   <section class="section" style="background:var(--black); overflow:hidden;">
     <div class="container">
-      <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap:5rem; align-items:center;">
+      <div class="grid-aside">
         <div>
           <div class="section-badge reveal"><span class="section-badge__num">02</span><span class="section-badge__line"></span><span class="section-badge__label">The Brand</span></div>
           <h2 class="t-headline reveal" style="margin-bottom:2rem;">Engineering <br/><span class="text-gradient">Excellence</span></h2>
@@ -144,9 +144,9 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
         <div class="reveal-right">
-          <div style="background:var(--dark-card); border:1px solid var(--dark-border); border-radius:var(--radius-xl); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; position:relative;">
+          <div style="background:var(--dark-card); border:1px solid var(--dark-border); border-radius:var(--radius-xl); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; position:relative;" class="about-img-box">
              <span style="font-size:8rem;">🏎️</span>
-             <div style="position:absolute; bottom:2rem; left:-2rem; background:var(--grad-orange); padding:1.5rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-card);">
+             <div class="about-stat-badge">
                <div style="font-family:var(--font-display); font-size:2rem; font-weight:800; line-height:1;">8+</div>
                <div style="font-size:.65rem; text-transform:uppercase; letter-spacing:.15em; margin-top:.3rem;">Years of Speed</div>
              </div>
