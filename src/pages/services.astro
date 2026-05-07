@@ -1,0 +1,66 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+const services = [
+  {num:"01",icon:"🏎️",title:"Go-Kart Manufacturing",desc:"Custom-built go-karts engineered for performance, durability, and speed. From beginner recreational karts to professional racing machines.",features:["CIK-FIA compliant frames","125cc to 250cc engines","Custom liveries & setups","Full race prep available"]},
+  {num:"02",icon:"🏍️",title:"ATV Sales & Customisation",desc:"All-terrain vehicles built to conquer any landscape. Rugged, powerful, and adventure-ready for off-road enthusiasts.",features:["50cc to 1000cc options","Off-road & sport variants","Custom modifications","Spare parts supply"]},
+  {num:"03",icon:"🚙",title:"UTV Sales",desc:"Side-by-side UTVs perfect for recreation, agriculture, and adventure. Built tough for Nigerian terrain.",features:["2 to 6 seater options","Utility & sport models","Roll cage protection","Financing available"]},
+  {num:"04",icon:"🏁",title:"Racing Car Fabrication",desc:"Bespoke lightweight racing cars designed and fabricated in-house. From track day specials to full competition builds.",features:["Tube-frame chassis builds","Composite bodywork","FIA safety compliance","Trackday to race spec"]},
+  {num:"05",icon:"🎪",title:"Event Management",desc:"Full-service motorsport event management — from amateur track days to professional championship races.",features:["Venue sourcing & setup","Race day officials","Timing & scoring","Media & broadcasting"]},
+  {num:"06",icon:"🎯",title:"Corporate Racing Events",desc:"Unique corporate team-building experiences with karting, ATV adventures, and branded racing events.",features:["Group packages","Branded karts & kit","Catering options","Trophies & awards"]}
+];
+---
+<Layout title="Services" page="services">
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <div class="section-badge reveal"><span class="section-badge__num">00</span><span class="section-badge__line"></span><span class="section-badge__label">What We Do</span></div>
+    <h1 class="t-headline reveal">Our <span class="text-gradient">Services</span></h1>
+  </div>
+</section>
+
+{services.map((s,i) => (
+<section class={`section ${i%2===0?'':''}` } style={`background:${i%2===0?'var(--dark)':'var(--black)'}`}>
+  <div class="container">
+    <div class={`svc-grid ${i%2!==0?'svc-grid--rev':''}`}>
+      <div>
+        <div class="section-badge reveal"><span class="section-badge__num">{s.num}</span><span class="section-badge__line"></span><span class="section-badge__label">Service</span></div>
+        <div style="font-size:3rem;margin-bottom:1rem">{s.icon}</div>
+        <h2 class="t-headline reveal" style="margin-bottom:1rem">{s.title}</h2>
+        <p class="t-body reveal" style="margin-bottom:1.5rem">{s.desc}</p>
+        <ul style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem" class="reveal">
+          {s.features.map(f=>(
+            <li style="display:flex;align-items:center;gap:.6rem;font-size:.875rem;color:var(--grey-light)">
+              <span style="color:var(--orange);font-size:1rem">▶</span>{f}
+            </li>
+          ))}
+        </ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap" class="reveal">
+          <a href="/book" class="btn btn-primary">Book Now</a>
+          <a href="/contact" class="btn btn-outline">Enquire</a>
+        </div>
+      </div>
+      <div class="reveal-right" style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-xl);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:6rem">{s.icon}</span>
+      </div>
+    </div>
+  </div>
+</section>
+))}
+
+<section class="section--sm" style="background:linear-gradient(135deg,#0f0f0f,#1a0800,#0f0f0f);text-align:center;border-top:1px solid rgba(255,106,0,.15)">
+  <div class="container">
+    <h2 class="t-headline reveal" style="margin-bottom:1rem">Ready to <span class="text-gradient">Start?</span></h2>
+    <p class="t-body reveal" style="max-width:480px;margin:0 auto 2rem">Contact us today for a custom quote or to book your motorsport experience.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal">
+      <a href="/book" class="btn btn-primary btn-lg">Book a Ride</a>
+      <a href="https://wa.me/2348023117566" class="btn btn-ghost btn-lg">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+</Layout>
+
+<style>
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.svc-grid--rev{direction:rtl}.svc-grid--rev>*{direction:ltr}
+@media(max-width:768px){.svc-grid{grid-template-columns:1fr!important;direction:ltr!important}}
+</style>

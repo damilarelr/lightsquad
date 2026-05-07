@@ -1,0 +1,129 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+const packages = [
+  {name:"Starter Lap",price:"₦15,000",duration:"30 min",includes:["5 laps on kart track","Safety briefing","Helmet & suit hire","Instructor guided"],color:"var(--dark-card)",popular:false},
+  {name:"Race Experience",price:"₦35,000",duration:"90 min",includes:["15 laps + time trial","ATV trail ride","Full safety gear","Race certificate","Photo package"],color:"var(--dark-card)",popular:true},
+  {name:"Full Day Blast",price:"₦75,000",duration:"Full Day",includes:["Unlimited laps","ATV + UTV session","Lunch included","Professional coaching","Trophy & photos"],color:"var(--dark-card)",popular:false}
+];
+---
+<Layout title="Book a Ride" page="book">
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <div class="section-badge reveal"><span class="section-badge__num">00</span><span class="section-badge__line"></span><span class="section-badge__label">Experiences</span></div>
+    <h1 class="t-headline reveal">Book a <span class="text-gradient">Ride</span></h1>
+    <p class="t-body reveal" style="max-width:500px;margin-top:1rem">Choose your package, pick a date, and get ready to feel the rush.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--dark)">
+  <div class="container">
+    <div class="section-badge reveal" style="justify-content:center"><span class="section-badge__num">01</span><span class="section-badge__line"></span><span class="section-badge__label">Choose Package</span></div>
+    <h2 class="t-headline text-center reveal" style="margin-bottom:3rem">Pick Your <span class="text-gradient">Experience</span></h2>
+    <div class="grid-3">
+      {packages.map(pkg=>(
+        <div class={`pkg-card reveal ${pkg.popular?'pkg-card--popular':''}`}>
+          {pkg.popular&&<div class="pkg-card__badge">Most Popular</div>}
+          <div class="pkg-card__duration">{pkg.duration}</div>
+          <h3 class="t-title" style="margin-bottom:.5rem">{pkg.name}</h3>
+          <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:900;color:var(--orange);margin-bottom:1.5rem">{pkg.price}</div>
+          <ul style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem">
+            {pkg.includes.map(i=>(
+              <li style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--grey-light)">
+                <span style="color:var(--orange)">✓</span>{i}
+              </li>
+            ))}
+          </ul>
+          <button class="btn w-full" style={`justify-content:center;background:${pkg.popular?'var(--grad-orange)':'transparent'};border:1px solid ${pkg.popular?'transparent':'var(--dark-border)'}`}
+            onclick={`selectPkg('${pkg.name}','${pkg.price}')`}>Select Package</button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--black)">
+  <div class="container container--narrow">
+    <div class="section-badge reveal" style="justify-content:center"><span class="section-badge__num">02</span><span class="section-badge__line"></span><span class="section-badge__label">Your Details</span></div>
+    <h2 class="t-headline text-center reveal" style="margin-bottom:3rem">Complete <span class="text-gradient">Booking</span></h2>
+    <form class="booking-form reveal" id="booking-form">
+      <div style="background:var(--dark-card);border:1px solid var(--orange);border-radius:var(--radius-md);padding:1rem 1.5rem;margin-bottom:2rem">
+        <div style="font-size:.7rem;color:var(--grey);margin-bottom:.25rem">Selected Package</div>
+        <div id="selected-pkg" style="font-family:var(--font-display);font-weight:700;color:var(--orange)">None selected — choose above</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input class="form-control" type="text" placeholder="John" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input class="form-control" type="text" placeholder="Doe" required />
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:1.5rem">
+        <label class="form-label">Phone Number</label>
+        <input class="form-control" type="tel" placeholder="+234 800 000 0000" required />
+      </div>
+      <div class="form-group" style="margin-top:1.5rem">
+        <label class="form-label">Email Address</label>
+        <input class="form-control" type="email" placeholder="you@example.com" required />
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem">
+        <div class="form-group">
+          <label class="form-label">Preferred Date</label>
+          <input class="form-control" type="date" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Group Size</label>
+          <select class="form-control">
+            <option>1 person</option>
+            <option>2-5 people</option>
+            <option>6-10 people</option>
+            <option>11-20 people</option>
+            <option>20+ people (corporate)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:1.5rem">
+        <label class="form-label">Special Requests</label>
+        <textarea class="form-control" placeholder="Any special requirements, accessibility needs, or notes..."></textarea>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem">
+        <button type="submit" class="btn btn-primary btn-lg" style="justify-content:center">Confirm Booking</button>
+        <a href="https://wa.me/2348023117566?text=Hi%20Lightsquad!%20I%20want%20to%20book%20a%20ride." class="btn btn-ghost btn-lg" style="justify-content:center">Book via WhatsApp</a>
+      </div>
+    </form>
+    <div id="booking-success" style="display:none;text-align:center;padding:3rem;background:var(--dark-card);border-radius:var(--radius-lg);border:1px solid rgba(37,211,102,.3)">
+      <div style="font-size:3rem;margin-bottom:1rem">🏁</div>
+      <h3 class="t-title" style="color:#25D366;margin-bottom:.75rem">Booking Received!</h3>
+      <p class="t-body">We&apos;ll confirm your booking via WhatsApp within 24 hours. Get ready to race!</p>
+    </div>
+  </div>
+</section>
+</Layout>
+
+<style>
+.pkg-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-lg);padding:2rem;position:relative;transition:all .35s}
+.pkg-card:hover{border-color:rgba(255,106,0,.4);transform:translateY(-5px);box-shadow:0 0 30px rgba(255,106,0,.15)}
+.pkg-card--popular{border-color:var(--orange);box-shadow:0 0 40px rgba(255,106,0,.2)}
+.pkg-card__badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad-orange);color:#fff;padding:.3rem 1rem;border-radius:var(--radius-full);font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap}
+.pkg-card__duration{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-bottom:.75rem}
+.booking-form{display:flex;flex-direction:column}
+@media(max-width:600px){.booking-form>div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}}
+</style>
+
+<script>
+let selectedPkg = '';
+function selectPkg(name:string,price:string){
+  selectedPkg=`${name} — ${price}`;
+  document.getElementById('selected-pkg')!.textContent=selectedPkg;
+  document.getElementById('booking-form')!.scrollIntoView({behavior:'smooth',block:'center'});
+}
+document.getElementById('booking-form')!.addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('booking-form')!.style.display='none';
+  document.getElementById('booking-success')!.style.display='block';
+});
+(window as any).selectPkg=selectPkg;
+</script>

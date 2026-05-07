@@ -1,0 +1,51 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+const posts = [
+  {id:1,cat:"Racing",title:"The Evolution of Go-Kart Racing in Nigeria",date:"May 04, 2026",desc:"Exploring the growing culture of competitive karting and what it means for the next generation of drivers.",emoji:"🏎️"},
+  {id:2,cat:"Tech",title:"Mastering the Turn: Engineering Precision Chassis",date:"Apr 28, 2026",desc:"A deep dive into how our lightweight racing cars are fabricated for maximum cornering speed.",emoji:"🔧"},
+  {id:3,cat:"Events",title:"Recap: The Lightsquad Summer Blast 2026",date:"Apr 15, 2026",desc:"Highlights from our biggest corporate racing event yet, featuring over 200 participants.",emoji:"🏆"},
+  {id:4,cat:"Guide",title:"ATV vs UTV: Which is Right for Your Adventure?",date:"Mar 30, 2026",desc:"Comparing the performance, safety, and versatility of our off-road fleet.",emoji:"🏍️"},
+];
+---
+<Layout title="Blog" page="blog">
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <div class="section-badge reveal"><span class="section-badge__num">00</span><span class="section-badge__line"></span><span class="section-badge__label">News & Tips</span></div>
+    <h1 class="t-headline reveal">Motorsport <span class="text-gradient">Journal</span></h1>
+  </div>
+</section>
+
+<section class="section" style="background:var(--dark)">
+  <div class="container">
+    <div class="grid-2" style="margin-bottom:4rem">
+      <div class="card reveal" style="display:flex;flex-direction:row;gap:0;overflow:hidden">
+         <div style="flex:1;background:var(--black);display:flex;align-items:center;justify-content:center;font-size:5rem">🏁</div>
+         <div style="flex:1.2;padding:2.5rem">
+           <div class="badge" style="margin-bottom:1rem">Featured Article</div>
+           <h3 class="t-title" style="margin-bottom:1rem">The Future of <br/>Lightsquad</h3>
+           <p class="t-body" style="font-size:.875rem;margin-bottom:1.5rem">Our vision for the next 5 years in automotive manufacturing and racing culture.</p>
+           <a href="#" class="btn btn-outline btn-sm">Read More</a>
+         </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      {posts.map(p=>(
+        <div class="card reveal">
+          <div style="aspect-ratio:16/9;background:var(--black);display:flex;align-items:center;justify-content:center;font-size:4rem">{p.emoji}</div>
+          <div class="card__body">
+            <div style="display:flex;justify-content:space-between;margin-bottom:.5rem">
+              <span class="t-label" style="font-size:.6rem">{p.cat}</span>
+              <span style="font-size:.7rem;color:var(--grey)">{p.date}</span>
+            </div>
+            <h3 class="t-title" style="font-size:1rem;margin-bottom:.75rem">{p.title}</h3>
+            <p style="font-size:.85rem;color:var(--grey);line-height:1.6;margin-bottom:1.5rem">{p.desc}</p>
+            <a href="#" style="font-size:.75rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.1em">Read Article →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+</Layout>

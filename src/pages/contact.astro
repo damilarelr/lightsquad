@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact" page="contact">
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <div class="section-badge reveal"><span class="section-badge__num">00</span><span class="section-badge__line"></span><span class="section-badge__label">Get in Touch</span></div>
+    <h1 class="t-headline reveal">Contact <span class="text-gradient">Us</span></h1>
+  </div>
+</section>
+
+<section class="section" style="background:var(--dark)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem" class="contact-grid">
+      <div>
+        <div class="section-badge reveal"><span class="section-badge__num">01</span><span class="section-badge__line"></span><span class="section-badge__label">Enquiries</span></div>
+        <h2 class="t-headline reveal" style="margin-bottom:2rem">Let&apos;s <span class="text-gradient">Talk.</span></h2>
+        <p class="t-body reveal" style="margin-bottom:3rem">Have a question about our machines, events, or booking a ride? Our team is ready to assist you.</p>
+        
+        <div style="display:flex;flex-direction:column;gap:2rem" class="reveal">
+          <div style="display:flex;gap:1.5rem;align-items:center">
+            <div style="width:50px;height:50px;background:var(--orange-glow);border:1px solid rgba(255,106,0,.3);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--orange)">
+              📍
+            </div>
+            <div>
+              <div class="t-label">Location</div>
+              <div style="font-weight:600">Nigeria</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1.5rem;align-items:center">
+            <div style="width:50px;height:50px;background:var(--orange-glow);border:1px solid rgba(255,106,0,.3);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--orange)">
+              ✉️
+            </div>
+            <div>
+              <div class="t-label">Email</div>
+              <div style="font-weight:600">info@lightsquadsports.com</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1.5rem;align-items:center">
+            <div style="width:50px;height:50px;background:var(--orange-glow);border:1px solid rgba(255,106,0,.3);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--orange)">
+              📞
+            </div>
+            <div>
+              <div class="t-label">WhatsApp</div>
+              <div style="font-weight:600">+234 802 311 7566</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;margin-top:1rem">
+            <a href="https://instagram.com/Lightsquadsports" target="_blank" class="footer__social" style="width:40px;height:40px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://youtube.com/@lightsquadkarts" target="_blank" class="footer__social" style="width:40px;height:40px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://twitter.com/lightsquadkarts" target="_blank" class="footer__social" style="width:40px;height:40px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card reveal-right" style="padding:2.5rem">
+        <form id="contact-form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="john@example.com" required />
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:1.5rem">
+            <label class="form-label">Subject</label>
+            <select class="form-control">
+              <option>General Enquiry</option>
+              <option>Machine Sales</option>
+              <option>Booking Request</option>
+              <option>Event Management</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-top:1.5rem">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" placeholder="Tell us what you're looking for..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full mt-lg" style="justify-content:center">Send Message</button>
+        </form>
+        <div id="contact-success" style="display:none;text-align:center;padding:2rem">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🏁</div>
+          <h3 class="t-title" style="color:var(--orange)">Message Sent!</h3>
+          <p class="t-body">We&apos;ll get back to you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</Layout>
+
+<script>
+document.getElementById('contact-form')!.addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('contact-form')!.style.display='none';
+  document.getElementById('contact-success')!.style.display='block';
+});
+</script>
+
+<style>
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr!important;gap:3rem!important}}
+</style>

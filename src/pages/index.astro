@@ -1,0 +1,173 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home" page="home">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero__grid"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__overlay-bottom"></div>
+    <img src="/images/hero.png" alt="Motorsport Racing" class="hero__bg" />
+    
+    <div class="container hero__content">
+      <div class="hero__eyebrow reveal">
+        <span class="hero__eyebrow-line"></span>
+        <span class="t-label">Motorsport Authority</span>
+      </div>
+      
+      <h1 class="t-hero hero__title reveal">
+        <span class="line-1">Precision.</span><br/>
+        <span class="line-2">Speed.</span><br/>
+        <span class="line-3">Adrenaline.</span>
+      </h1>
+      
+      <p class="hero__desc reveal">
+        Manufacturers of world-class go-karts, ATVs, UTVs, and lightweight racing cars. 
+        Experience the pinnacle of motorsport engineering and event management.
+      </p>
+      
+      <div class="hero__ctas reveal">
+        <a href="/book" class="btn btn-primary btn-lg">Book a Ride</a>
+        <a href="/shop" class="btn btn-outline btn-lg">Shop Machines</a>
+        <a href="/services" class="btn btn-ghost btn-lg">Explore Machines</a>
+      </div>
+      
+      <div class="hero__scroll reveal">
+        <span>Scroll to explore</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </div>
+    
+    <div class="hero__stats">
+      <div class="reveal-right">
+        <div class="hero__stat-value" data-counter="500" data-suffix="+">0+</div>
+        <div class="hero__stat-label">Machines Built</div>
+      </div>
+      <div class="reveal-right">
+        <div class="hero__stat-value" data-counter="12" data-suffix="k">0k</div>
+        <div class="hero__stat-label">Track Laps</div>
+      </div>
+      <div class="reveal-right">
+        <div class="hero__stat-value" data-counter="24" data-suffix="/7">0/7</div>
+        <div class="hero__stat-label">Track Support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED MACHINES -->
+  <section class="section" id="featured" style="background:var(--dark)">
+    <div class="container">
+      <div class="flex-center" style="flex-direction:column; margin-bottom:4rem;">
+        <div class="section-badge reveal"><span class="section-badge__num">01</span><span class="section-badge__line"></span><span class="section-badge__label">Featured Machines</span></div>
+        <h2 class="t-headline reveal">The <span class="text-gradient">Squad</span></h2>
+      </div>
+      
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="card__img-wrap" style="aspect-ratio:16/10; background:#000; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:4rem;">🏎️</span>
+          </div>
+          <div class="card__body">
+            <div class="t-label" style="margin-bottom:.5rem;">Go-Karts</div>
+            <h3 class="t-title" style="margin-bottom:1rem;">LS Viper 125</h3>
+            <p class="t-body" style="font-size:.875rem; margin-bottom:1.5rem;">The ultimate entry-level racing machine. Precision handling meets raw power.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="text-orange" style="font-weight:700;">₦850,000</span>
+              <a href="/shop" class="btn btn-primary btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card reveal">
+          <div class="card__img-wrap" style="aspect-ratio:16/10; background:#000; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:4rem;">🏍️</span>
+          </div>
+          <div class="card__body">
+            <div class="t-label" style="margin-bottom:.5rem;">ATVs</div>
+            <h3 class="t-title" style="margin-bottom:1rem;">LS Predator 250</h3>
+            <p class="t-body" style="font-size:.875rem; margin-bottom:1.5rem;">Conquer any terrain with the Predator. Rugged, reliable, and aggressive.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="text-orange" style="font-weight:700;">₦1,200,000</span>
+              <a href="/shop" class="btn btn-primary btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card reveal">
+          <div class="card__img-wrap" style="aspect-ratio:16/10; background:#000; display:flex; align-items:center; justify-content:center;">
+            <span style="font-size:4rem;">🚙</span>
+          </div>
+          <div class="card__body">
+            <div class="t-label" style="margin-bottom:.5rem;">UTVs</div>
+            <h3 class="t-title" style="margin-bottom:1rem;">LS Ranger X4</h3>
+            <p class="t-body" style="font-size:.875rem; margin-bottom:1.5rem;">Family adventure redefined. 4-seater power for the ultimate off-road trip.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="text-orange" style="font-weight:700;">₦5,200,000</span>
+              <a href="/shop" class="btn btn-primary btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex-center mt-lg reveal">
+        <a href="/shop" class="btn btn-outline">View All Machines</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section" style="background:var(--black); overflow:hidden;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap:5rem; align-items:center;">
+        <div>
+          <div class="section-badge reveal"><span class="section-badge__num">02</span><span class="section-badge__line"></span><span class="section-badge__label">The Brand</span></div>
+          <h2 class="t-headline reveal" style="margin-bottom:2rem;">Engineering <br/><span class="text-gradient">Excellence</span></h2>
+          <p class="t-body reveal" style="margin-bottom:2rem; max-width:540px;">
+            At Lightsquad Motorsports, we don't just build machines; we engineer adrenaline. 
+            Our passion for performance drives every weld, every engine tune, and every race event we manage.
+          </p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;" class="reveal">
+            <div>
+              <div class="accent-line"></div>
+              <h4 class="t-title" style="font-size:0.9rem; margin-bottom:.5rem;">Innovation</h4>
+              <p style="font-size:.82rem; color:var(--grey);">Cutting-edge fabrication techniques for maximum performance.</p>
+            </div>
+            <div>
+              <div class="accent-line"></div>
+              <h4 class="t-title" style="font-size:0.9rem; margin-bottom:.5rem;">Performance</h4>
+              <p style="font-size:.82rem; color:var(--grey);">Built to win. Engineered to last. Tested on the track.</p>
+            </div>
+          </div>
+          <div class="mt-lg reveal">
+            <a href="/about" class="btn btn-primary">Our Story</a>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div style="background:var(--dark-card); border:1px solid var(--dark-border); border-radius:var(--radius-xl); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; position:relative;">
+             <span style="font-size:8rem;">🏎️</span>
+             <div style="position:absolute; bottom:2rem; left:-2rem; background:var(--grad-orange); padding:1.5rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-card);">
+               <div style="font-family:var(--font-display); font-size:2rem; font-weight:800; line-height:1;">8+</div>
+               <div style="font-size:.65rem; text-transform:uppercase; letter-spacing:.15em; margin-top:.3rem;">Years of Speed</div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="section--xl" style="background:linear-gradient(135deg, #0f0f0f, #1a0800, #0f0f0f); text-align:center;">
+    <div class="container">
+      <h2 class="t-headline reveal" style="margin-bottom:1.5rem;">Join the <span class="text-gradient">Squad</span></h2>
+      <p class="t-body reveal" style="max-width:520px; margin:0 auto 3rem;">
+        Whether you're looking for your first kart or planning a corporate racing event, 
+        we're here to deliver the thrill.
+      </p>
+      <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;" class="reveal">
+        <a href="/book" class="btn btn-primary btn-lg">Book an Experience</a>
+        <a href="/contact" class="btn btn-outline btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

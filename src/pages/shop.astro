@@ -1,0 +1,132 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+const products = [
+  {id:1,cat:"Go-Karts",name:"LS Viper 125",price:"₦850,000",tag:"Best Seller",desc:"Entry-level racing kart. Perfect for beginners and track days.",emoji:"🏎️"},
+  {id:2,cat:"Go-Karts",name:"LS Raptor Pro",price:"₦1,450,000",tag:"Pro Series",desc:"Competition-spec kart with 250cc engine and full race setup.",emoji:"🏎️"},
+  {id:3,cat:"Go-Karts",name:"LS Junior 50",price:"₦620,000",tag:"Kids",desc:"Safe, fun 50cc kart designed specifically for young riders aged 7-14.",emoji:"🏎️"},
+  {id:4,cat:"ATVs",name:"LS Predator 250",price:"₦1,200,000",tag:"Popular",desc:"Mid-size ATV for off-road trails and recreational riding.",emoji:"🏍️"},
+  {id:5,cat:"ATVs",name:"LS Titan 500",price:"₦2,100,000",tag:"Power",desc:"Full-size sport ATV with 500cc engine and premium suspension.",emoji:"🏍️"},
+  {id:6,cat:"UTVs",name:"LS Ranger 2-Seat",price:"₦3,500,000",tag:"New",desc:"Sport side-by-side with roll cage, 2 seats and 800cc engine.",emoji:"🚙"},
+  {id:7,cat:"UTVs",name:"LS Ranger 4-Seat",price:"₦5,200,000",tag:"Family",desc:"Family UTV with 4 seats, premium safety features and 1000cc power.",emoji:"🚙"},
+  {id:8,cat:"Accessories",name:"Racing Helmet",price:"₦85,000",tag:"Safety",desc:"FIA-rated full-face helmet in Lightsquad livery.",emoji:"🪖"},
+  {id:9,cat:"Accessories",name:"Racing Suit",price:"₦120,000",tag:"Safety",desc:"Fire-resistant racing suit with LS branding.",emoji:"👔"},
+  {id:10,cat:"Accessories",name:"Kart Cover",price:"₦25,000",tag:"Gear",desc:"Weather-proof custom kart storage cover.",emoji:"📦"},
+  {id:11,cat:"Accessories",name:"Spare Parts Kit",price:"₦45,000",tag:"Parts",desc:"Essential spare parts kit for your Lightsquad kart.",emoji:"🔧"},
+  {id:12,cat:"Go-Karts",name:"LS Storm 200",price:"₦1,100,000",tag:"Performance",desc:"Mid-range performance kart with 200cc engine and adjustable chassis.",emoji:"🏎️"},
+];
+const cats = ["All","Go-Karts","ATVs","UTVs","Accessories"];
+---
+<Layout title="Shop" page="shop">
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <div class="section-badge reveal"><span class="section-badge__num">00</span><span class="section-badge__line"></span><span class="section-badge__label">Our Store</span></div>
+    <h1 class="t-headline reveal">Shop <span class="text-gradient">Machines</span></h1>
+  </div>
+</section>
+
+<section class="section" style="background:var(--dark)">
+  <div class="container">
+    <div class="shop-filters reveal" id="shop-filters">
+      {cats.map(c=>(
+        <button class={`filter-btn ${c==='All'?'active':''}`} data-filter={c}>{c}</button>
+      ))}
+    </div>
+    <div class="shop-grid" id="shop-grid">
+      {products.map(p=>(
+        <div class="product-card reveal" data-cat={p.cat}>
+          <div class="product-card__image">
+            <span style="font-size:4rem">{p.emoji}</span>
+            <span class="badge" style="position:absolute;top:1rem;left:1rem">{p.tag}</span>
+          </div>
+          <div class="product-card__body">
+            <div class="t-label" style="margin-bottom:.4rem">{p.cat}</div>
+            <h3 class="t-title" style="font-size:1rem;margin-bottom:.5rem">{p.name}</h3>
+            <p style="font-size:.82rem;color:var(--grey);margin-bottom:1rem;line-height:1.5">{p.desc}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--orange)">{p.price}</span>
+              <button class="btn btn-primary btn-sm" onclick={`addToCart('${p.name}','${p.price}')`}>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-sidebar__overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar__panel">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem">
+      <h3 class="t-title" style="font-size:1.1rem">Your Cart</h3>
+      <button class="btn btn-ghost btn-sm" id="close-cart">✕ Close</button>
+    </div>
+    <div id="cart-items" style="flex:1;overflow-y:auto"></div>
+    <div style="border-top:1px solid var(--dark-border);padding-top:1.5rem;margin-top:1.5rem">
+      <div style="display:flex;justify-content:space-between;margin-bottom:1rem">
+        <span style="font-weight:600">Total</span>
+        <span id="cart-total" style="color:var(--orange);font-family:var(--font-display);font-weight:700">₦0</span>
+      </div>
+      <a href="https://wa.me/2348023117566" class="btn btn-primary w-full" style="justify-content:center">Order via WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<div class="cart-fab" id="cart-fab" onclick="document.getElementById('cart-sidebar').classList.add('open')">
+  🛒 <span id="cart-count">0</span>
+</div>
+</Layout>
+
+<style>
+.shop-filters{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{padding:.55rem 1.3rem;border:1px solid var(--dark-border);border-radius:var(--radius-full);background:var(--dark-card);color:var(--grey-light);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.filter-btn.active,.filter-btn:hover{background:var(--grad-orange);border-color:var(--orange);color:#fff}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.product-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:var(--radius-lg);overflow:hidden;transition:all .35s}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(255,106,0,.4);box-shadow:0 0 40px rgba(255,106,0,.2)}
+.product-card__image{aspect-ratio:4/3;background:var(--dark);display:flex;align-items:center;justify-content:center;position:relative}
+.product-card__body{padding:1.25rem}
+.product-card.hidden{display:none}
+.cart-sidebar{position:fixed;inset:0;z-index:2000;pointer-events:none}
+.cart-sidebar.open{pointer-events:all}
+.cart-sidebar__overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);opacity:0;transition:opacity .35s}
+.cart-sidebar.open .cart-sidebar__overlay{opacity:1}
+.cart-sidebar__panel{position:absolute;right:0;top:0;bottom:0;width:380px;max-width:100vw;background:var(--dark);border-left:1px solid var(--dark-border);padding:2rem;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.cart-sidebar.open .cart-sidebar__panel{transform:translateX(0)}
+.cart-fab{position:fixed;bottom:6.5rem;right:2rem;z-index:1500;background:var(--grad-orange);color:#fff;padding:.7rem 1.2rem;border-radius:var(--radius-full);font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 4px 20px rgba(255,106,0,.4);transition:all .25s}
+.cart-fab:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,106,0,.5)}
+@media(max-width:900px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.shop-grid{grid-template-columns:1fr}.cart-sidebar__panel{width:100vw}}
+</style>
+
+<script>
+let cart: {name:string,price:string}[] = [];
+function addToCart(name:string,price:string){
+  cart.push({name,price});
+  updateCart();
+  document.getElementById('cart-sidebar')!.classList.add('open');
+}
+function updateCart(){
+  const el=document.getElementById('cart-items')!;
+  const count=document.getElementById('cart-count')!;
+  count.textContent=String(cart.length);
+  if(!cart.length){el.innerHTML='<p style="color:var(--grey);text-align:center;margin-top:2rem">Your cart is empty</p>';document.getElementById('cart-total')!.textContent='₦0';return;}
+  el.innerHTML=cart.map((c,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--dark-border)"><div><div style="font-size:.85rem;font-weight:600">${c.name}</div><div style="font-size:.78rem;color:var(--orange)">${c.price}</div></div><button onclick="removeItem(${i})" style="background:none;border:none;color:var(--grey);cursor:pointer;font-size:1.1rem">✕</button></div>`).join('');
+  document.getElementById('cart-total')!.textContent=cart[cart.length-1].price;
+}
+function removeItem(i:number){cart.splice(i,1);updateCart();}
+document.getElementById('close-cart')!.addEventListener('click',()=>document.getElementById('cart-sidebar')!.classList.remove('open'));
+document.getElementById('cart-overlay')!.addEventListener('click',()=>document.getElementById('cart-sidebar')!.classList.remove('open'));
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=(btn as HTMLElement).dataset.filter;
+    document.querySelectorAll<HTMLElement>('.product-card').forEach(card=>{
+      card.classList.toggle('hidden',f!=='All'&&card.dataset.cat!==f);
+    });
+  });
+});
+(window as any).addToCart=addToCart;
+(window as any).removeItem=removeItem;
+</script>

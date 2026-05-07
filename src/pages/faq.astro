@@ -1,0 +1,39 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+const faqs = [
+  {q:"How do I book a racing experience?",a:"You can book directly through our 'Book a Ride' page or via WhatsApp at +234 802 311 7566. We recommend booking at least 48 hours in advance."},
+  {q:"What are the age requirements for karting?",a:"We have junior karts for ages 7-14 and adult karts for ages 15 and up. All minors must have a signed waiver from a legal guardian."},
+  {q:"Do you deliver purchased machines nationwide?",a:"Yes, we offer nationwide delivery across Nigeria for all go-karts, ATVs, and UTVs. Shipping costs vary based on location."},
+  {q:"Are your machines suitable for beginners?",a:"Absolutely. We offer machines for all skill levels, from beginner recreational karts to professional competition-spec builds. Training is provided for all ride experiences."},
+  {q:"What safety gear do I need?",a:"For ride experiences, we provide helmets and racing suits. If you're purchasing a machine, we strongly recommend buying a full set of safety gear from our shop."},
+  {q:"Can I host a private event at your track?",a:"Yes! We specialise in private corporate events, birthday parties, and custom motorsport gatherings. Contact our events team via the contact page for a custom quote."}
+];
+---
+<Layout title="FAQ" page="faq">
+<section class="page-hero">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    <div class="section-badge reveal"><span class="section-badge__num">00</span><span class="section-badge__line"></span><span class="section-badge__label">Common Questions</span></div>
+    <h1 class="t-headline reveal">Got <span class="text-gradient">Questions?</span></h1>
+  </div>
+</section>
+
+<section class="section" style="background:var(--dark)">
+  <div class="container container--narrow">
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      {faqs.map((f,i)=>(
+        <div class="card reveal" style="padding:1.5rem 2rem">
+          <div class="t-title" style="font-size:.9rem;margin-bottom:.75rem;color:var(--orange)">{f.q}</div>
+          <p class="t-body" style="font-size:.9rem">{f.a}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="card mt-lg reveal" style="padding:3rem;text-align:center;border-color:rgba(255,106,0,.3)">
+      <h3 class="t-title" style="margin-bottom:1rem">Still need help?</h3>
+      <p class="t-body" style="margin-bottom:2rem">Our support team is available via WhatsApp for immediate assistance.</p>
+      <a href="https://wa.me/2348023117566" class="btn btn-primary btn-lg">Chat with Support</a>
+    </div>
+  </div>
+</section>
+</Layout>
